@@ -1,5 +1,7 @@
+import MainPage from './MainPage';
+
 const App = () => {
-  return <div>Interactive Card Form</div>;
+  return <MainPage />;
 };
 
 export default App;
