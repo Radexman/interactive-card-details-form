@@ -2,7 +2,7 @@ import cardFrontImage from './assets/images/bg-card-front.png';
 
 const CardFront = () => {
   return (
-    <div className="absolute left-6 top-36 z-20 xl::left-36">
+    <div className="xl::left-36 absolute left-6 top-36 z-20">
       <div className="relative w-96 text-white">
         <img src={cardFrontImage} className="" alt="" />
         <div className="absolute bottom-0 left-0 right-0 top-0 flex flex-col p-4">
