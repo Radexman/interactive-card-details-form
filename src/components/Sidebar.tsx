@@ -1,7 +1,7 @@
 import CardFront from './CardFront';
 import CardBack from './CardBack';
 
-const Sidebar = () => {
+const Sidebar = ({ cardData }) => {
   return (
     <div>
       <div className="realtive">
@@ -15,8 +15,8 @@ const Sidebar = () => {
           className="block h-72 w-full xl:hidden"
           alt=""
         />
-        <CardFront />
-        <CardBack />
+        <CardFront cardData={cardData} />
+        <CardBack cardData={cardData} />
       </div>
     </div>
   );

@@ -1,17 +1,26 @@
 import { useState } from 'react';
-import Sidebar from './Sidebar';
-import CardForm from './CardForm';
+import Sidebar from './components/Sidebar';
+import CardForm from './components/CardForm';
 
 const App = () => {
-  const [name, setName] = useState('');
+  const [cardData, setCardData] = useState({
+    cardholderName: '',
+    cardNumber: '',
+    expieryDateMonth: '',
+    expieryDateYear: '',
+    cardCvc: '',
+  });
 
-  const handleChangeName = (name) => {
-    setName(name);
+  const handleChange = (e) => {
+    setCardData({ ...cardData, [e.target.name]: e.target.value });
   };
+
+  console.log(cardData);
+
   return (
     <main className="flex flex-col justify-center gap-20 bg-neutral-white xl:flex-row xl:justify-between">
-      <Sidebar handleChangeName={handleChangeName} />
-      <CardForm />
+      <Sidebar cardData={cardData} />
+      <CardForm cardData={cardData} handleChange={handleChange} />
     </main>
   );
 };
