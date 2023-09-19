@@ -1,7 +1,13 @@
 const CardForm = ({ cardData, handleChange }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.target.className = 'hidden';
+    document.querySelector('.sucess').classList.remove('hidden');
+  };
+
   return (
     <div className="xl:mr-22 z-20 mx-auto flex items-center justify-center">
-      <form className="max-w-2xl space-y-4 p-6">
+      <form onSubmit={handleSubmit} className=" max-w-2xl space-y-4 p-6">
         <div className="flex w-96 flex-col">
           <label
             htmlFor="name"
@@ -85,12 +91,35 @@ const CardForm = ({ cardData, handleChange }) => {
               name="cardCvc"
               onChange={handleChange}
               maxLength={3}
-              className="w-42 rounded-md border-2 border-neutral-darkGrayishVioler bg-neutral-white p-2 px-4 text-sm font-bold text-neutral-veryDarkViolet placeholder:text-neutral-lightGrayishViolet"
+              className="rounded-md border-2 border-neutral-darkGrayishVioler bg-neutral-white p-2 px-4 text-sm font-bold text-neutral-veryDarkViolet placeholder:text-neutral-lightGrayishViolet"
               placeholder="e.g.123"
             />
           </div>
         </div>
+        <button
+          type="submit"
+          className="w-full rounded-md bg-neutral-veryDarkViolet p-4 text-white transition-all hover:scale-95"
+        >
+          Confirm
+        </button>
       </form>
+      <div className="sucess my-16 hidden space-y-3 text-center">
+        <img
+          src="src\assets\images\icon-complete.svg"
+          className="w-30 h-30 mx-auto"
+          alt="Checkmark"
+        />
+        <h2 className="text-2xl uppercase tracking-widest text-neutral-veryDarkViolet">
+          Thank You!
+        </h2>
+        <p>We've added your card details</p>
+        <button
+          type="submit"
+          className=" w-full rounded-md bg-neutral-veryDarkViolet p-4 text-white transition-all hover:scale-95"
+        >
+          Continue
+        </button>
+      </div>
     </div>
   );
 };
